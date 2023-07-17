@@ -17,7 +17,7 @@ app.get('/', (req, res)=> {
 })
 
 app.use('/user', userRoutes)
-app.use('/question', questionRoutes)
+app.use('/questions', questionRoutes)
 
 const PORT = process.env.PORT || 5000
 
