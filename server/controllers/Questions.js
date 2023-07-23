@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 
 export const AskQuestion = async (req, res) => {
     const postQuestionData = req.body;
-    const postQuestion = new Questions({...postQuestionData, userId: req.userId});
+    const postQuestion = new Questions(postQuestionData);
     try {
         await postQuestion.save();
         res.status(200).json("Posted a question successfully.")
@@ -32,7 +32,7 @@ export const deleteQuestion = async(req, res) => {
     
     try {
         await Questions.findByIdAndRemove(_id);
-        res.status(200).json({message: "Successfully deleted"})
+        res.status(200).json({message: "Successfully deleted..."})
     } catch (error) {
         res.status(404).json({message: error.message})
     }
