@@ -45,6 +45,7 @@ export const deleteAnswer = async (req, res) => {
             {_id},
             {$pull: {'answer': {_id: answerId}}}
         )
+        res.status(200).json({message: "Successfullt deleted..."})
     } catch (error) {
         res.status(405).json(error)
     }
